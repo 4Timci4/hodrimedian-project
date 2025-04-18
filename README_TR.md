@@ -12,7 +12,7 @@ Veri üretme sistemi 5 ana modülden oluşmaktadır:
 4. **final_generate4.py**: Veri işleme ve ana program akışı
 5. **sales_data.py**: Satış verileri ve ağırlık hesaplamaları
 
-Sistem, temel müşteri bilgilerini `shopping_behavior.csv` dosyasından okur ve detaylı satın alma kayıtları oluşturarak bunları `previous_purchases_data.csv` dosyasına kaydeder.
+Sistem, temel müşteri bilgilerini `shopping_behavior.csv` dosyasından okur ve detaylı satın alma kayıtları oluşturarak bunları `final_data.csv` dosyasına kaydeder.
 
 ## Veri Üretim Süreci
 
@@ -44,7 +44,7 @@ def main():
     adjusted_df = HolidayAdjuster.apply_adjustments(temp_df)
     
     # Çıkış dosyasına kaydet
-    adjusted_df.to_csv(Constants.OUTPUT_FILE, index=False)  # previous_purchases_data.csv
+    adjusted_df.to_csv(Constants.OUTPUT_FILE, index=False)  # final_data.csv
 ```
 
 ### 2. Veri Modellerinin Tanımlanması
@@ -174,7 +174,7 @@ Temel müşteri bilgilerini içerir:
 - Abonelik Durumu
 - İndirim Uygulandı
 
-### Çıkış: `previous_purchases_data.csv`
+### Çıkış: `final_data.csv`
 Detaylı satın alma kayıtlarını içerir:
 - Tüm giriş alanları (İndirim Uygulandı ve Sıklık hariç)
 - Satın Alınan Ürün
@@ -205,7 +205,7 @@ Sistem şunları yapacaktır:
 1. Müşteri verilerini `shopping_behavior.csv` dosyasından yükle
 2. Satın alma kayıtları oluştur
 3. Gerçekçi ayarlamaları uygula
-4. Sonucu `previous_purchases_data.csv` dosyasına kaydet
+4. Sonucu `final_data.csv` dosyasına kaydet
 
 ## Özelleştirme
 

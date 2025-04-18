@@ -12,7 +12,7 @@ The data generation system is composed of 5 main modules:
 4. **final_generate4.py**: Data processing and main program flow
 5. **sales_data.py**: Sales data and weight calculations
 
-The system reads basic customer information from `shopping_behavior.csv` and generates detailed purchase records, which are saved to `previous_purchases_data.csv`.
+The system reads basic customer information from `shopping_behavior.csv` and generates detailed purchase records, which are saved to `final_data.csv`.
 
 ## Data Generation Process
 
@@ -44,7 +44,7 @@ def main():
     adjusted_df = HolidayAdjuster.apply_adjustments(temp_df)
     
     # Save to output file
-    adjusted_df.to_csv(Constants.OUTPUT_FILE, index=False)  # previous_purchases_data.csv
+    adjusted_df.to_csv(Constants.OUTPUT_FILE, index=False)  # final_data.csv
 ```
 
 ### 2. Data Models Definition
@@ -174,7 +174,7 @@ Contains basic customer information:
 - Subscription Status
 - Discount Applied
 
-### Output: `previous_purchases_data.csv`
+### Output: `final_data.csv`
 Contains detailed purchase records:
 - All input fields (except Discount Applied and Frequency)
 - Item Purchased
@@ -205,7 +205,7 @@ The system will:
 1. Load customer data from `shopping_behavior.csv`
 2. Generate purchase records
 3. Apply realistic adjustments
-4. Save the result to `previous_purchases_data.csv`
+4. Save the result to `final_data.csv`
 
 ## Customization
 
